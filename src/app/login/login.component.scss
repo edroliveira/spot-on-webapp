@@ -1,0 +1,109 @@
+.wrapper {
+    width: 100%;
+    height: 100%;
+    background-color: #6189AF;
+    background-image: linear-gradient(#6189AF, #1C3E5E);
+
+    .login-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+
+        .login {
+            width: 30%;
+            max-width: 400px;
+            min-width: 300px;
+            max-height: 80%;
+            padding: 20px;
+            align-self: center;
+            background-color: #FFF;
+            border-radius: 30px;
+            text-align: center;
+
+            header {
+                width: 100%;
+                margin-top: 30px;
+                display: flex;
+                justify-content: center;
+
+                .title {
+                    font-size: 36px;
+                    font-weight: 500;
+                    color: #416E97;
+                }
+            }
+
+            .content-wrapper {
+                width: 100%;
+                margin-top: 50px;
+                display: grid;
+                justify-content: center;
+
+                .input {
+                    width: 280px;
+
+                    .input-icon {
+                        color: #959595;
+                    }
+                }
+            }
+
+            .button-wrapper {
+                width: 100%;
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+
+                .btn {
+                    margin: 10px;
+                    padding: 20px 30px;
+                    font-size: 18px;
+                    color: #FFF;
+                    background-color: #959595;
+                    border-radius: 20px;
+                }
+
+                .btn-primary {
+                    background-color: #0CA0DF;
+                }
+            }
+
+            a:link {
+                color: #1C3E5E;
+                background-color: transparent;
+                text-decoration: none;
+            }
+
+            a:visited {
+                color: #183550;
+                background-color: transparent;
+                text-decoration: none;
+            }
+
+            a:hover, a:active {
+                color: #0CA0DF;
+                background-color: transparent;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .footer {
+        width: 100%;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+
+        span {
+            font-size: 16px;
+            color: #B6B6B6;
+        }
+    }
+}
+
+.mdc-text-field--outlined {
+    --mdc-outlined-text-field-container-shape: 20px;
+}

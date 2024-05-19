@@ -1,0 +1,59 @@
+<div class="wrapper">
+
+    <div class="login-container">
+        <div class="login">
+            <header>
+                <span class="quicksand-font title"> Spot On </span>
+            </header>
+
+            <div class="content-wrapper">
+                <form [formGroup]="loginForm">
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label> Código da Empresa </mat-label>
+                        <input matInput formControlName="codigoEmpresa">
+                        <mat-icon matPrefix class="input-icon">domain</mat-icon>
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label> Usuário </mat-label>
+                        <input matInput formControlName="usuario">
+                        <mat-icon matPrefix class="input-icon">person</mat-icon>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="outline" class="input">
+                        <mat-label> Senha </mat-label>
+                        <input matInput formControlName="senha" [type]="hidePassword ? 'password' : 'text'">
+                        <mat-icon matPrefix class="input-icon">lock</mat-icon>
+                        <button
+                            mat-icon-button
+                            matSuffix
+                            class="input-icon"
+                            (click)="hidePassword = !hidePassword"
+                            [attr.aria-label]="'hidePassword password'"
+                            [attr.aria-pressed]="hidePassword"
+                        >
+                            <mat-icon> {{ hidePassword ? 'visibility_off' : 'visibility' }} </mat-icon>
+                        </button>
+                    </mat-form-field>
+                </form>
+            </div>
+
+            <div class="button-wrapper">
+                <button mat-raised-button class="btn"> Cadastrar </button>
+                <button mat-raised-button class="btn btn-primary" (click)="onClickLogin()"> Login </button>
+            </div>
+
+            <a [routerLink]="['/forgot-password']" class="link">
+                Esqueceu a senha?
+            </a>
+        </div>
+    </div>
+
+    <!-- <div class="google-login">
+        <span> Ou faça login com a sua <br /> conta corporativa do Google </span>
+    </div> -->
+
+    <div class="footer">
+        <span class="quicksand-font"> by SOL </span>
+    </div>
+</div>
