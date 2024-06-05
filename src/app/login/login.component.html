@@ -10,19 +10,19 @@
                 <form [formGroup]="loginForm">
                     <mat-form-field appearance="outline" class="input">
                         <mat-label> Código da Empresa </mat-label>
-                        <input matInput formControlName="codigoEmpresa">
+                        <input id="codigoEmpresa" matInput formControlName="codigoEmpresa">
                         <mat-icon matPrefix class="input-icon">domain</mat-icon>
                     </mat-form-field>
                     
                     <mat-form-field appearance="outline" class="input">
                         <mat-label> Usuário </mat-label>
-                        <input matInput formControlName="usuario">
+                        <input id="usuario" matInput formControlName="usuario">
                         <mat-icon matPrefix class="input-icon">person</mat-icon>
                     </mat-form-field>
     
                     <mat-form-field appearance="outline" class="input">
                         <mat-label> Senha </mat-label>
-                        <input matInput formControlName="senha" [type]="hidePassword ? 'password' : 'text'">
+                        <input id="senha" matInput formControlName="senha" [type]="hidePassword ? 'password' : 'text'">
                         <mat-icon matPrefix class="input-icon">lock</mat-icon>
                         <button
                             mat-icon-button
