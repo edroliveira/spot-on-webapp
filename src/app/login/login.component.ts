@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -31,18 +31,28 @@ export class LoginComponent {
     senha: new FormControl({ value: '', disabled: false }, Validators.required)
   });
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(
+    private _snackBar: MatSnackBar,
+    private _router: Router
+  ) { }
 
-  onClickLogin() {
+  onClickSignUp() {
+    this._router.navigate(['/signup']);
+  }
+
+  onSubmitLogin() {
     console.log(this.loginForm);
-    this.openAlert();
+    if (!this.loginForm.valid) {
+      this.openAlert();
+    }
   }
 
   openAlert() {
     this._snackBar.open('Preencha os campos obrigatórios', 'OK', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
-      duration: 3000
+      duration: 3000,
+      panelClass: ['panel-error']
     });
   }
 

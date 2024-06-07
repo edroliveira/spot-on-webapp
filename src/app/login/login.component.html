@@ -1,13 +1,13 @@
 <div class="wrapper">
 
     <div class="login-container">
-        <div class="login">
+        <div class="login shadow-underlay">
             <header>
                 <span class="quicksand-font title"> Spot On </span>
             </header>
 
-            <div class="content-wrapper">
-                <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+                <div class="content-wrapper">
                     <mat-form-field appearance="outline" class="input">
                         <mat-label> Código da Empresa </mat-label>
                         <input id="codigoEmpresa" matInput formControlName="codigoEmpresa">
@@ -35,13 +35,13 @@
                             <mat-icon> {{ hidePassword ? 'visibility_off' : 'visibility' }} </mat-icon>
                         </button>
                     </mat-form-field>
-                </form>
-            </div>
-
-            <div class="button-wrapper">
-                <button mat-raised-button class="btn"> Cadastrar </button>
-                <button mat-raised-button class="btn btn-primary" (click)="onClickLogin()"> Login </button>
-            </div>
+                </div>
+                
+                <div class="button-wrapper">
+                    <button mat-raised-button class="btn" type="button" (click)="onClickSignUp()"> Cadastrar </button>
+                    <button mat-raised-button class="btn btn-primary" type="submit"> Login </button>
+                </div>
+            </form>
 
             <a [routerLink]="['/forgot-password']" class="link">
                 Esqueceu a senha?

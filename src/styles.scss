@@ -9,3 +9,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: 400;
     font-style: normal;
 }
+
+.panel-success {
+    --mdc-snackbar-container-color: #38c963 !important;
+    --mdc-snackbar-supporting-text-color: white !important;
+    --mat-mdc-snack-bar-button-color: white !important;
+}
+
+.panel-alert {
+    --mdc-snackbar-container-color: #c79730 !important;
+    --mdc-snackbar-supporting-text-color: white !important;
+    --mat-mdc-snack-bar-button-color: white !important;
+}
+
+.panel-error {
+    --mdc-snackbar-container-color: #c73644 !important;
+    --mdc-snackbar-supporting-text-color: white !important;
+    --mat-mdc-snack-bar-button-color: white !important;
+}
+
+.shadow-underlay {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
