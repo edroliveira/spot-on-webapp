@@ -2,11 +2,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
+import { SnackbarService } from '../service/snackbar.service';
+import { AlertTypeEnum } from '../shared/model/enum/alert-type.enum';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +29,7 @@ export class LoginComponent {
   });
 
   constructor(
-    private _snackBar: MatSnackBar,
+    private _snackbarService: SnackbarService,
     private _router: Router
   ) { }
 
@@ -43,17 +40,8 @@ export class LoginComponent {
   onSubmitLogin() {
     console.log(this.loginForm);
     if (!this.loginForm.valid) {
-      this.openAlert();
+      this._snackbarService.openAlert(AlertTypeEnum.ERROR);
     }
-  }
-
-  openAlert() {
-    this._snackBar.open('Preencha os campos obrigatórios', 'OK', {
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      duration: 3000,
-      panelClass: ['panel-error']
-    });
   }
 
 }
