@@ -4,6 +4,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { Router, RouterModule } from '@angular/router';
 import { SnackbarService } from '../service/snackbar.service';
 import { AlertTypeEnum } from '../shared/model/enum/alert-type.enum';
+import { AuthGoogleService } from '../../services/auth-google.service';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ import { AlertTypeEnum } from '../shared/model/enum/alert-type.enum';
     ReactiveFormsModule,
     RouterModule
   ],
+  providers: [AuthGoogleService],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
   encapsulation: ViewEncapsulation.None
@@ -29,6 +31,7 @@ export class LoginComponent {
   });
 
   constructor(
+    private _authGoogleService: AuthGoogleService,
     private _snackbarService: SnackbarService,
     private _router: Router
   ) { }
@@ -42,6 +45,10 @@ export class LoginComponent {
     if (!this.loginForm.valid) {
       this._snackbarService.openAlert(AlertTypeEnum.ERROR);
     }
+  }
+
+  signInWithGoogle() {
+    this._authGoogleService.login();
   }
 
 }

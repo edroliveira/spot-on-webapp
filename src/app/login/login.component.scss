@@ -51,7 +51,6 @@
 
             .button-wrapper {
                 width: 100%;
-                margin-top: 20px;
                 display: flex;
                 justify-content: center;
 
@@ -66,6 +65,12 @@
 
                 .btn-primary {
                     background-color: #0CA0DF;
+                }
+
+                .google-icon {
+                    width: 30px;
+                    height: 30px;
+                    vertical-align: middle;
                 }
             }
 

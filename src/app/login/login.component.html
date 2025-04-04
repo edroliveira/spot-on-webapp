@@ -41,6 +41,16 @@
                     <button mat-raised-button class="btn" type="button" (click)="onClickSignUp()"> Cadastrar </button>
                     <button mat-raised-button class="btn btn-primary" type="submit"> Login </button>
                 </div>
+
+                <div class="button-wrapper">
+                    <button mat-stroked-button type="button" (click)="signInWithGoogle()">
+                        <img
+                            src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"
+                            alt="Google"
+                            class="google-icon"
+                        />
+                    </button>
+                </div>
             </form>
 
             <a [routerLink]="['/forgot-password']" class="link">
