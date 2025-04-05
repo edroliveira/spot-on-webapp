@@ -1,0 +1,6 @@
+<p>dashboard works!</p>
+
+@if (currentUser$ | async; as user) {
+    <p>Welcome, {{ user.name }}!</p>
+    <p>Your email is: {{ user.email }}</p>
+}

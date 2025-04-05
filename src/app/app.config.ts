@@ -5,6 +5,12 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideOAuthClient } from 'angular-oauth2-oidc';
 import { provideHttpClient } from '@angular/common/http';
+import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
+import { withNgxsFormPlugin } from '@ngxs/form-plugin';
+import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
+import { withNgxsWebSocketPlugin } from '@ngxs/websocket-plugin';
+import { provideStore } from '@ngxs/store';
+import { GoogleUserState } from '../state/google-user-state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -13,5 +19,11 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(),
     provideOAuthClient(),
+    provideStore(
+      [GoogleUserState],
+      withNgxsReduxDevtoolsPlugin(),
+      withNgxsFormPlugin(),
+      withNgxsRouterPlugin(),
+      withNgxsWebSocketPlugin()),
   ]
 };
