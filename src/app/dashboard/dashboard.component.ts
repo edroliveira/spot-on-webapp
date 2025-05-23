@@ -1,6 +1,6 @@
-import { Component, OnInit, WritableSignal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthGoogleService } from '../../services/auth-google.service';
-import { AsyncPipe, JsonPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { GoogleUserData } from '../../models/google-user-data';
 import { GoogleUserState } from '../../state/google-user-state';
