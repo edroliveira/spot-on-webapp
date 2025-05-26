@@ -4,6 +4,7 @@ import { authConfig } from '../../auth-config';
 import { GoogleUserData } from '../models/google-user-data';
 import { Store } from '@ngxs/store';
 import { SetGoogleUser } from '../action/google-user-action';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +15,8 @@ export class AuthGoogleService {
     profile!: Record<string, any>;
 
     constructor(
-        private store: Store
+        private store: Store,
+        private _router: Router
     ) {
         this.initConfiguration();
     }
@@ -23,11 +25,8 @@ export class AuthGoogleService {
         this.oAuthService.configure(authConfig);
         this.oAuthService.setupAutomaticSilentRefresh();
         this.oAuthService.loadDiscoveryDocumentAndTryLogin().then(() => {
-            console.log("hasValidToken", this.oAuthService.hasValidIdToken())
             if (this.oAuthService.hasValidIdToken()) {
-                console.log('Identity claims', this.oAuthService.getIdentityClaims())
                 this.profile = this.oAuthService.getIdentityClaims();
-                console.log('Name', this.profile['name']);
                 this.setGoogleUserData();
             }
         });
@@ -38,8 +37,10 @@ export class AuthGoogleService {
     }
 
     logout() {
-        this.oAuthService.revokeTokenAndLogout();
-        this.oAuthService.logOut();
+        this.oAuthService.revokeTokenAndLogout().then(() => {
+            this._router.navigate(['/login']);
+        });
+        // this.oAuthService.logOut();
     }
 
     setGoogleUserData(): void {
@@ -63,6 +64,7 @@ export class AuthGoogleService {
         };
 
         this.store.dispatch(new SetGoogleUser(googleUserData));
+        this._router.navigate(['/dashboard']);
     }
 
 }

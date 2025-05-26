@@ -1,0 +1,26 @@
+.header {
+    background-color: #5cadfd;
+    padding: 10px;
+
+    .header-row {
+        justify-content: space-between;
+
+        .user-info {
+            display: flex;
+            align-items: center;
+
+            .user-name {
+                margin-right: 10px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            .user-pic {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+    }
+}

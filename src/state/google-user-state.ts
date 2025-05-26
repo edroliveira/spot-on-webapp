@@ -22,13 +22,10 @@ export class GoogleUserState {
 
     @Action(SetGoogleUser)
     setGoogleUser(ctx: StateContext<GoogleUserStateModel>, action: SetGoogleUser) {
-        console.log('Google User Data set in state:', action.googleUser);
-
         const state = ctx.getState();
         ctx.setState({
             ...state,
             currentUser: action.googleUser
         });
-        console.log(ctx.getState());
     }
 }
