@@ -5,12 +5,16 @@ import { Observable } from 'rxjs';
 import { GoogleUserData } from '../../models/google-user-data';
 import { GoogleUserState } from '../../state/google-user-state';
 import { select, Store } from '@ngxs/store';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   providers: [AuthGoogleService],
-  imports: [AsyncPipe],
+  imports: [
+    AsyncPipe,
+    HeaderComponent
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -18,10 +22,12 @@ export class DashboardComponent implements OnInit {
   currentUser$: Observable<GoogleUserData | null> = this.store.select(GoogleUserState.getCurrentUser);
 
   constructor(
-    private store: Store
+    private store: Store,
+    private authGoogleService: AuthGoogleService
   ) { }
 
   ngOnInit(): void {
 
   }
+
 }

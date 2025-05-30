@@ -7,10 +7,10 @@ import { AlertTypeEnum } from '../shared/model/enum/alert-type.enum';
 })
 export class SnackbarService {
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar) { }
 
   openAlert(type: AlertTypeEnum) {
-    this._snackBar.open('Preencha os campos obrigatórios', 'OK', {
+    this.snackBar.open('Preencha os campos obrigatórios', 'OK', {
       horizontalPosition: 'center',
       verticalPosition: 'top',
       duration: 3000,

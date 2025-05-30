@@ -4,7 +4,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -16,7 +18,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }

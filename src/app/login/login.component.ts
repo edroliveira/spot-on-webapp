@@ -31,24 +31,23 @@ export class LoginComponent {
   });
 
   constructor(
-    private _authGoogleService: AuthGoogleService,
-    private _snackbarService: SnackbarService,
-    private _router: Router
+    private authGoogleService: AuthGoogleService,
+    private snackbarService: SnackbarService,
+    private router: Router
   ) { }
 
   onClickSignUp() {
-    this._router.navigate(['/signup']);
+    this.router.navigate(['/signup']);
   }
 
   onSubmitLogin() {
-    console.log(this.loginForm);
     if (!this.loginForm.valid) {
-      this._snackbarService.openAlert(AlertTypeEnum.ERROR);
+      this.snackbarService.openAlert(AlertTypeEnum.ERROR);
     }
   }
 
   signInWithGoogle() {
-    this._authGoogleService.login();
+    this.authGoogleService.login();
   }
 
 }
