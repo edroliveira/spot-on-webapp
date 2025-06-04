@@ -5,6 +5,16 @@
     .header-row {
         justify-content: space-between;
 
+        .menu-icon-wrapper {
+            padding: 5px;
+            border-radius: 15px;
+
+                .menu-icon {
+                    width: 40px;
+                    cursor: pointer;
+                }
+            }
+
         .user-info {
             display: flex;
             align-items: center;

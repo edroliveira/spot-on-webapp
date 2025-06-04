@@ -1,0 +1,11 @@
+.sidenav-container {
+    margin: 10px;
+    height: calc(100% - 100px);
+
+    .sidenav-content {
+        background-color: #e6e7f0;
+        padding: 5px;
+        border-radius: 16px;
+        box-shadow: 10px 0px 10px -10px rgba(0, 0, 0, 0.2);
+    }
+}
