@@ -11,6 +11,7 @@ import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
 import { withNgxsWebSocketPlugin } from '@ngxs/websocket-plugin';
 import { provideStore } from '@ngxs/store';
 import { GoogleUserState } from '../state/google-user-state';
+import { SidenavState } from '../state/sidenav-state';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,7 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideOAuthClient(),
     provideStore(
-      [GoogleUserState],
+      [GoogleUserState, SidenavState],
       withNgxsReduxDevtoolsPlugin(),
       withNgxsFormPlugin(),
       withNgxsRouterPlugin(),

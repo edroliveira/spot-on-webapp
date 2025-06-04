@@ -1,6 +1,8 @@
 <mat-toolbar class="header">
     <mat-toolbar-row class="header-row">
-        <img style="width: 40px;" src="assets/icons/menu.svg" alt="Menu icon">
+        <div matRipple class="menu-icon-wrapper">
+            <img class="menu-icon" src="assets/icons/menu.svg" alt="Menu icon" (click)="onToggleSidenav()">
+        </div>
 
         <div class="user-info">
             @if (currentUser$ | async; as user) {
@@ -10,7 +12,7 @@
                     <button mat-menu-item>Conta</button>
                     <button mat-menu-item (click)="openDialog()">Logout</button>
                 </mat-menu>
-                }
+            }
         </div>
     </mat-toolbar-row>
 </mat-toolbar>
