@@ -21,7 +21,6 @@ import { AuthGoogleService } from '../../services/auth-google.service';
   encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent {
-
   hidePassword = true;
 
   loginForm = new FormGroup({

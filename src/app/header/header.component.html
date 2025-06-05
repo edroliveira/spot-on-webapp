@@ -1,10 +1,14 @@
 <mat-toolbar class="header">
     <mat-toolbar-row class="header-row">
-        <div matRipple class="menu-icon-wrapper">
-            <img class="menu-icon" src="assets/icons/menu.svg" alt="Menu icon" (click)="onToggleSidenav()">
+        <div matRipple class="menu-icon-wrapper" (click)="onToggleSidenav()">
+            <img class="menu-icon" src="assets/icons/menu.svg" alt="Menu icon">
+        </div>
+        
+        <div class="logo-wrapper">
+            <img src="assets/icons/spot-on-logo-transparent.svg" alt="">
         </div>
 
-        <div class="user-info">
+        <div class="user-info quicksand-font">
             @if (currentUser$ | async; as user) {
                 <span class="user-name" [matMenuTriggerFor]="menu"> Olá, <b>{{ user.name }}</b>! </span>
                 <img class="user-pic" [src]="user.picture" alt="User's profile picture" [matMenuTriggerFor]="menu" />
