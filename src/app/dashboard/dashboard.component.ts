@@ -11,6 +11,12 @@ import { SidenavState } from '../../state/sidenav-state';
 import { SetToggleSidenav } from '../../action/sidenav-action';
 import { MatDrawer } from '@angular/material/sidenav';
 
+interface NavItem {
+  name: string;
+  iconSrc: string;
+  route: string;
+}
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -28,8 +34,16 @@ export class DashboardComponent implements OnInit {
     .pipe(distinctUntilChanged());
   toggleSidenav$: Observable<boolean> = this.store.select(SidenavState.getToggleSidenav)
     .pipe(distinctUntilChanged());
+  toggleSidenav: boolean = false;
 
   @ViewChild('drawer') drawer!: MatDrawer;
+
+  navItems: NavItem[] = [
+    { name: 'Novo Registro', iconSrc: 'home', route: '/dashboard/home' },
+    { name: 'Relatório', iconSrc: 'person', route: '/dashboard/profile' },
+    { name: 'Configurações', iconSrc: 'settings', route: '/dashboard/settings' },
+    { name: 'Ajuda', iconSrc: 'help', route: '/dashboard/help' }
+  ]
 
   constructor(
     private store: Store,
@@ -44,10 +58,15 @@ export class DashboardComponent implements OnInit {
 
   handleToggleSidenav(): void {
     this.toggleSidenav$.subscribe((toggleSidenav) => {
+      this.toggleSidenav = toggleSidenav;
       if (this.drawer) {
         toggleSidenav ? this.drawer.open() : this.drawer.close();
       }
     });
+  }
+
+  onToggleSidenav() {
+    this.store.dispatch(new SetToggleSidenav(!this.toggleSidenav));
   }
 
 }

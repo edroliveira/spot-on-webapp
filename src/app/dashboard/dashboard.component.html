@@ -4,6 +4,20 @@
 <mat-drawer-container class="sidenav-container">
     <mat-drawer #drawer mode="side" class="sidenav-content">
         <!-- TODO: Add sidenav content here -->
+         <nav class="nav-wrapper">
+            <img class="icon-close"
+                src="assets/icons/close.svg"
+                alt="Close Icon"
+                (click)="onToggleSidenav()"
+                matTooltip="Fechar menu"
+                matTooltipPosition="after"
+                matTooltipShowDelay="300"
+            >
+
+            <div class="nav-item">
+
+            </div>
+         </nav>
     </mat-drawer>
     <mat-drawer-content>
         <!-- TODO: Add dashboard content here -->

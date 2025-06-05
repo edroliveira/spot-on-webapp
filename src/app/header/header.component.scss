@@ -9,11 +9,20 @@
             padding: 5px;
             border-radius: 15px;
 
-                .menu-icon {
-                    width: 40px;
-                    cursor: pointer;
-                }
+            .menu-icon {
+                width: 40px;
+                cursor: pointer;
             }
+        }
+
+        .logo-wrapper {
+            position: absolute;
+            left: calc(50% - 25px);
+
+            img {
+                width: 50px;
+            }
+        }
 
         .user-info {
             display: flex;
@@ -22,6 +31,8 @@
             .user-name {
                 margin-right: 10px;
                 font-size: 16px;
+                color: #FFFFFF;
+                opacity: 0.8;
                 cursor: pointer;
             }
 

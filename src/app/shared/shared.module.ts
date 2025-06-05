@@ -9,6 +9,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatRippleModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { MatRippleModule } from '@angular/material/core';
     MatMenuModule,
     MatDialogModule,
     MatSidenavModule,
-    MatRippleModule
+    MatRippleModule,
+    MatDividerModule,
+    MatTooltipModule
   ]
 })
 export class SharedModule { }
