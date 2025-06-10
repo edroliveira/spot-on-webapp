@@ -57,6 +57,12 @@ export class AuthGoogleService implements OnDestroy {
         });
     }
 
+    isLoggedIn(): boolean {
+        return this.oAuthService.hasValidIdToken() &&
+            this.oAuthService.hasValidAccessToken() &&
+            this.oAuthService.getIdentityClaims() !== null;
+    }
+
     private validateToken(): boolean {
         return this.oAuthService.hasValidIdToken() &&
             this.oAuthService.hasValidAccessToken();
