@@ -31,3 +31,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .shadow-underlay {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
+
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.mat-mdc-menu-panel {
+    background-color: #e6e7f0 !important;
+}

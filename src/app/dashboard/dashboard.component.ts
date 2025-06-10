@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SidenavState } from '../../state/sidenav-state';
 import { SetToggleSidenav } from '../../action/sidenav-action';
 import { MatDrawer } from '@angular/material/sidenav';
+import { RouterOutlet } from '@angular/router';
 
 interface NavItem {
   name: string;
@@ -22,6 +23,7 @@ interface NavItem {
   standalone: true,
   providers: [AuthGoogleService],
   imports: [
+    RouterOutlet,
     AsyncPipe,
     HeaderComponent,
     SharedModule

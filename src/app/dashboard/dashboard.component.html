@@ -5,7 +5,7 @@
     <mat-drawer #drawer mode="side" class="sidenav-content">
         <!-- TODO: Add sidenav content here -->
          <nav class="nav-wrapper">
-            <img class="icon-close"
+            <img class="icon-close zoom"
                 src="assets/icons/close.svg"
                 alt="Close Icon"
                 (click)="onToggleSidenav()"
@@ -20,7 +20,7 @@
          </nav>
     </mat-drawer>
     <mat-drawer-content>
-        <!-- TODO: Add dashboard content here -->
+        <router-outlet />
     </mat-drawer-content>
 </mat-drawer-container>
 
