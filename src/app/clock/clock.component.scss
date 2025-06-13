@@ -1,0 +1,26 @@
+.clock-face {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+
+    .clock-face-item {
+        padding: 60px 20px 20px 20px;
+        margin: 10px;
+        align-content: center;
+        background-color: #e6e7f0;
+        border-radius: 30px;
+
+        span {
+            font-size: 110px;
+        }
+    }
+
+    .clock-face-separator {
+        align-content: center;
+
+        span {
+            font-size: 65px;
+        }
+    }
+}

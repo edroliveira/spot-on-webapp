@@ -1,0 +1,17 @@
+<div class="clock-face">
+    <div class="clock-face-item">
+        <span class="stardos-stencil-font">{{ currentTime | date:'HH' }}</span>
+    </div>
+    <div class="clock-face-separator">
+        <span> : </span>
+    </div>
+    <div class="clock-face-item">
+        <span class="stardos-stencil-font">{{ currentTime | date:'mm' }}</span>
+    </div>
+    <div class="clock-face-separator">
+        <span> : </span>
+    </div>
+    <div class="clock-face-item">
+        <span class="stardos-stencil-font">{{ currentTime | date:'ss' }}</span>
+    </div>
+</div>

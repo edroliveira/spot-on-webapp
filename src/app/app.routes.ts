@@ -29,6 +29,17 @@ export const routes: Routes = [
     },
     {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        children: [
+            {
+                path: '',
+                redirectTo: 'timesheet',
+                pathMatch: 'full'
+            },
+            {
+                path: 'timesheet',
+                loadComponent: () => import('./timesheet/timesheet.component').then(c => c.TimesheetComponent)
+            }
+        ]
     }
 ];
