@@ -3,8 +3,7 @@
 @if (currentUser$ | async; as user) {
 <mat-drawer-container class="sidenav-container">
     <mat-drawer #drawer mode="side" class="sidenav-content">
-        <!-- TODO: Add sidenav content here -->
-         <nav class="nav-wrapper">
+        <nav class="nav-wrapper">
             <img class="icon-close zoom"
                 src="assets/icons/close.svg"
                 alt="Close Icon"
@@ -14,10 +13,19 @@
                 matTooltipShowDelay="300"
             >
 
-            <div class="nav-item">
-
+            <div class="nav-items">
+                @for (navItem of navItems; track $index) {
+                <a class="nav-item" matRipple [routerLink]="[navItem.route]">
+                    <img class="nav-item-icon" [src]="navItem.iconSrc" [alt]="navItem.iconAlt">
+                    <span class="nav-item-text"> {{ navItem.name }} </span>
+                </a>
+                }
             </div>
-         </nav>
+
+            <div class="footer">
+                <span class="quicksand-font"> by SOL </span>
+            </div>
+        </nav>
     </mat-drawer>
     <mat-drawer-content class="main-content">
         <router-outlet />

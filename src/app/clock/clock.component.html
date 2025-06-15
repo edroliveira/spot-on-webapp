@@ -1,17 +1,24 @@
-<div class="clock-face">
-    <div class="clock-face-item">
-        <span class="stardos-stencil-font">{{ currentTime | date:'HH' }}</span>
-    </div>
-    <div class="clock-face-separator">
-        <span> : </span>
-    </div>
-    <div class="clock-face-item">
-        <span class="stardos-stencil-font">{{ currentTime | date:'mm' }}</span>
-    </div>
-    <div class="clock-face-separator">
-        <span> : </span>
-    </div>
-    <div class="clock-face-item">
-        <span class="stardos-stencil-font">{{ currentTime | date:'ss' }}</span>
+<div class="clock-container">
+    <span class="date stardos-stencil-font">
+        {{ currentTime | date: 'EEEE' : '' : 'pt-BR' }},
+        {{ currentTime | date: 'longDate' : '' : 'pt-BR' }}
+    </span>
+
+    <div class="clock-face">
+        <div class="clock-face-item hours">
+            <span class="stardos-stencil-font">{{ currentTime | date:'HH' }}</span>
+        </div>
+        <div class="clock-face-separator">
+            <span> : </span>
+        </div>
+        <div class="clock-face-item minutes">
+            <span class="stardos-stencil-font">{{ currentTime | date:'mm' }}</span>
+        </div>
+        <div class="clock-face-separator">
+            <span> : </span>
+        </div>
+        <div class="clock-face-item seconds">
+            <span class="stardos-stencil-font">{{ currentTime | date:'ss' }}</span>
+        </div>
     </div>
 </div>

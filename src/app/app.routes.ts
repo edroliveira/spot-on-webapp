@@ -9,7 +9,7 @@ import { inject } from '@angular/core';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: (url) => {
+        redirectTo: () => {
             const authGoogleService = inject(AuthGoogleService);
             return authGoogleService.isLoggedIn() ? '/dashboard' : '/login';
         },

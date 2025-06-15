@@ -16,6 +16,52 @@
                 float: right;
                 cursor: pointer;
             }
+
+            .nav-items {
+                margin-top: 20px;
+
+                .nav-item {
+                    width: calc(100% - 10px);
+                    margin-top: 10px;
+                    padding: 5px;
+                    display: block;
+                    text-decoration: none;
+                    border-radius: 10px;
+                    transition: .1s;
+
+                    .nav-item-icon {
+                        width: 25px;
+                        vertical-align: sub;
+                    }
+
+                    .nav-item-text {
+                        font-size: 18px;
+                        color: rgba(0, 0, 0, 0.7);
+                    }
+                }
+
+                .nav-item:hover {
+                    background-color: rgba(34, 64, 94, 0.2);
+                }
+
+                .nav-item-selected {
+                    background-color: rgba(34, 64, 94, 0.3);
+                }
+            }
+
+            .footer {
+                width: calc(100% - 20px);
+                padding-bottom: 10px;
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                bottom: 0;
+
+                span {
+                    font-size: 14px;
+                    color: #B6B6B6;
+                }
+            }
         }
     }
 
