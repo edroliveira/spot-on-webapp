@@ -1,26 +1,55 @@
-.clock-face {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
+.clock-container {
+    width: 500px;
+    margin: auto;
+    padding-top: 20px;
 
-    .clock-face-item {
-        padding: 60px 20px 20px 20px;
-        margin: 10px;
-        align-content: center;
-        background-color: #e6e7f0;
-        border-radius: 30px;
-
-        span {
-            font-size: 110px;
-        }
+    .date {
+        margin-left: 15px;
+        font-size: 18px;
     }
 
-    .clock-face-separator {
-        align-content: center;
+    .clock-face {
+        width: 100%;
+        display: flex;
+        justify-content: center;
 
-        span {
-            font-size: 65px;
+        .clock-face-item {
+            padding: 50px 20px 20px 20px;
+            margin: 10px;
+            align-content: center;
+            background-color: #e6e7f0;
+
+            span {
+                font-size: 90px;
+                color: rgba(0, 0, 0, 0.7);
+            }
+        }
+
+        .hours {
+            border-top-left-radius: 25px;
+            border-bottom-left-radius: 25px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .minutes {
+            border-radius: 10px;
+        }
+
+        .seconds {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .clock-face-separator {
+            align-content: center;
+
+            span {
+                font-size: 55px;
+                color: rgba(0, 0, 0, 0.5);
+            }
         }
     }
 }

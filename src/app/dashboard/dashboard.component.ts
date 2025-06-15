@@ -10,12 +10,13 @@ import { SharedModule } from '../shared/shared.module';
 import { SidenavState } from '../../state/sidenav-state';
 import { SetToggleSidenav } from '../../action/sidenav-action';
 import { MatDrawer } from '@angular/material/sidenav';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 interface NavItem {
   name: string;
-  iconSrc: string;
   route: string;
+  iconSrc: string;
+  iconAlt: string;
 }
 
 @Component({
@@ -24,6 +25,7 @@ interface NavItem {
   providers: [AuthGoogleService],
   imports: [
     RouterOutlet,
+    RouterLink,
     AsyncPipe,
     HeaderComponent,
     SharedModule
@@ -41,10 +43,11 @@ export class DashboardComponent implements OnInit {
   @ViewChild('drawer') drawer!: MatDrawer;
 
   navItems: NavItem[] = [
-    { name: 'Novo Registro', iconSrc: 'home', route: '/dashboard/home' },
-    { name: 'Relatório', iconSrc: 'person', route: '/dashboard/profile' },
-    { name: 'Configurações', iconSrc: 'settings', route: '/dashboard/settings' },
-    { name: 'Ajuda', iconSrc: 'help', route: '/dashboard/help' }
+    { name: 'Novo Registro', route: '/dashboard/timesheet', iconSrc: 'assets/icons/clock.svg', iconAlt: 'Clock Icon' },
+    { name: 'Relatório Detalhado', route: '/dashboard/detailed-report', iconSrc: 'assets/icons/report.svg', iconAlt: 'Profile Icon' },
+    { name: 'Perfil', route: '/dashboard/profile', iconSrc: 'assets/icons/profile.svg', iconAlt: 'Profile Icon' },
+    { name: 'Configurações', route: '/dashboard/settings', iconSrc: 'assets/icons/settings.svg', iconAlt: 'Settings Icon' },
+    { name: 'Ajuda', route: '/dashboard/help', iconSrc: 'assets/icons/help.svg', iconAlt: 'Help Icon' }
   ]
 
   constructor(

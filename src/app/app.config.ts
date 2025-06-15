@@ -12,6 +12,9 @@ import { withNgxsWebSocketPlugin } from '@ngxs/websocket-plugin';
 import { provideStore } from '@ngxs/store';
 import { GoogleUserState } from '../state/google-user-state';
 import { SidenavState } from '../state/sidenav-state';
+import { registerLocaleData } from '@angular/common';
+import localePT from '@angular/common/locales/pt';
+registerLocaleData(localePT)
 
 export const appConfig: ApplicationConfig = {
   providers: [
