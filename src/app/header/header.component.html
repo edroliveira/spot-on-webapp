@@ -11,7 +11,7 @@
         <div class="user-info quicksand-font">
             @if (currentUser$ | async; as user) {
                 <span class="user-name"> Olá, <b>{{ user.name }}</b>! </span>
-                <img class="user-pic zoom" [src]="user.picture" alt="User's profile picture" [matMenuTriggerFor]="menu" />
+                <img class="user-pic zoom" [src]="user.picture" alt="User's profile picture" [matMenuTriggerFor]="menu" loading="lazy" />
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item>Conta</button>
                     <button mat-menu-item (click)="openDialog()">Logout</button>
