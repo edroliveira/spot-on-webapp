@@ -11,6 +11,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSidenavModule,
     MatRippleModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTableModule
   ]
 })
 export class SharedModule { }

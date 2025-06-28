@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://lh3.googleusercontent.com",
+    "secure": true,
+    "changeOrigin": true
+  }
+}
