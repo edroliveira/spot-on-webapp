@@ -15,7 +15,7 @@
 
             <div class="nav-items">
                 @for (navItem of navItems; track $index) {
-                <a class="nav-item" matRipple [routerLink]="[navItem.route]">
+                <a class="nav-item quicksand-font" matRipple [routerLink]="[navItem.route]">
                     <img class="nav-item-icon" [src]="navItem.iconSrc" [alt]="navItem.iconAlt">
                     <span class="nav-item-text"> {{ navItem.name }} </span>
                 </a>

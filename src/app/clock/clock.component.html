@@ -1,7 +1,9 @@
 <div class="clock-container">
-    <span class="date stardos-stencil-font">
-        {{ currentTime | date: 'EEEE' : '' : 'pt-BR' }},
-        {{ currentTime | date: 'longDate' : '' : 'pt-BR' }}
+    <span class="date quicksand-font">
+        <b>
+            <span style="text-transform: capitalize;"> {{ currentTime | date: 'EEEE' : '' : 'pt-BR' }}, </span>
+            <span> {{ currentTime | date: 'longDate' : '' : 'pt-BR' }} </span>
+        </b>
     </span>
 
     <div class="clock-face">
@@ -21,4 +23,15 @@
             <span class="stardos-stencil-font">{{ currentTime | date:'ss' }}</span>
         </div>
     </div>
+
+    <div class="btn-wrapper">
+        <button type="button" class="btn-std" aria-label="Registrar ponto no sistema" matRipple>
+            <span class="quicksand-font">Registrar Ponto</span>
+        </button>
+
+        <button type="button" class="btn-stroked" aria-label="Registrar ponto no sistema" matRipple>
+            <span class="quicksand-font">Acessar painel detalhado</span>
+        </button>
+    </div>
 </div>
+

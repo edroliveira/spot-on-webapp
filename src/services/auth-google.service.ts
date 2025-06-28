@@ -30,7 +30,7 @@ export class AuthGoogleService implements OnDestroy {
         this.currentUser$
             .pipe(takeUntil(this.destroy$))
             .subscribe(user => {
-                if (user === null) {
+                if (user === null || !this.validateToken()) {
                     this.initConfiguration();
                 }
             });

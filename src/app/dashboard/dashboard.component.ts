@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
   navItems: NavItem[] = [
     { name: 'Novo Registro', route: '/dashboard/timesheet', iconSrc: 'assets/icons/clock.svg', iconAlt: 'Clock Icon' },
     { name: 'Relatório Detalhado', route: '/dashboard/detailed-report', iconSrc: 'assets/icons/report.svg', iconAlt: 'Profile Icon' },
-    { name: 'Perfil', route: '/dashboard/profile', iconSrc: 'assets/icons/profile.svg', iconAlt: 'Profile Icon' },
+    { name: 'Perfil', route: '/dashboard/profile', iconSrc: 'assets/icons/account.svg', iconAlt: 'Profile Icon' },
     { name: 'Configurações', route: '/dashboard/settings', iconSrc: 'assets/icons/settings.svg', iconAlt: 'Settings Icon' },
     { name: 'Ajuda', route: '/dashboard/help', iconSrc: 'assets/icons/help.svg', iconAlt: 'Help Icon' }
   ]
