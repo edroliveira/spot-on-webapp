@@ -1,3 +1,7 @@
+@if (showLoading) {
+<app-loading></app-loading>
+}
+
 <app-header></app-header>
 
 @if (currentUser$ | async; as user) {
