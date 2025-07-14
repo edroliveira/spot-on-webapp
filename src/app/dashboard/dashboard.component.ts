@@ -4,13 +4,14 @@ import { AsyncPipe } from '@angular/common';
 import { distinctUntilChanged, Observable } from 'rxjs';
 import { GoogleUserData } from '../../models/google-user-data';
 import { GoogleUserState } from '../../state/google-user-state';
-import { select, Store } from '@ngxs/store';
+import { Store } from '@ngxs/store';
 import { HeaderComponent } from '../header/header.component';
 import { SharedModule } from '../shared/shared.module';
 import { SidenavState } from '../../state/sidenav-state';
 import { SetToggleSidenav } from '../../action/sidenav-action';
 import { MatDrawer } from '@angular/material/sidenav';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { LoadingComponent } from '../loading/loading.component';
 
 interface NavItem {
   name: string;
@@ -28,12 +29,15 @@ interface NavItem {
     RouterLink,
     AsyncPipe,
     HeaderComponent,
+    LoadingComponent,
     SharedModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit {
+  showLoading = false;
+
   currentUser$: Observable<GoogleUserData | null> = this.store.select(GoogleUserState.getCurrentUser)
     .pipe(distinctUntilChanged());
   toggleSidenav$: Observable<boolean> = this.store.select(SidenavState.getToggleSidenav)

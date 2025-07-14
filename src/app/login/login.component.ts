@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { SnackbarService } from '../service/snackbar.service';
 import { AlertTypeEnum } from '../shared/model/enum/alert-type.enum';
 import { AuthGoogleService } from '../../services/auth-google.service';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ import { AuthGoogleService } from '../../services/auth-google.service';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    LoadingComponent
   ],
   providers: [AuthGoogleService],
   templateUrl: './login.component.html',
@@ -21,6 +23,7 @@ import { AuthGoogleService } from '../../services/auth-google.service';
   encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent {
+  showLoading = false;
   hidePassword = true;
 
   loginForm = new FormGroup({
