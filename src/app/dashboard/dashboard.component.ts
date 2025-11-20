@@ -10,7 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SidenavState } from '../../state/sidenav-state';
 import { SetToggleSidenav } from '../../action/sidenav-action';
 import { MatDrawer } from '@angular/material/sidenav';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { LoadingComponent } from '../loading/loading.component';
 
 interface NavItem {
@@ -56,6 +56,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private store: Store,
+    private readonly router: Router,
     private authGoogleService: AuthGoogleService
   ) {
     this.handleToggleSidenav();

@@ -30,7 +30,7 @@
                 .title {
                     margin-left: 10px;
                     font-size: 36px;
-                    font-weight: 500;
+                    font-weight: 600;
                     color: #2e547b;
                 }
             }
@@ -52,19 +52,21 @@
 
             .button-wrapper {
                 width: 100%;
+                margin-bottom: 20px;
                 display: flex;
                 justify-content: center;
 
                 .btn {
                     margin: 10px;
-                    padding: 20px 30px;
-                    font-size: 18px;
+                    padding: 20px 25px;
+                    font-size: 16px;
                     color: #FFF;
-                    background-color: #959595;
+                    background-color: #2e547b;
                     border-radius: 20px;
                 }
 
                 .btn-primary {
+                    color: #FFF;
                     background-color: #5DADFD;
                 }
 
