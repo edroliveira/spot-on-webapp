@@ -8,8 +8,8 @@ import { LoadingComponent } from '../loading/loading.component';
 import { SnackbarService } from '../../services/snackbar/snackbar.service';
 
 @Component({
-  selector: 'app-login',
   standalone: true,
+  selector: 'app-login',
   imports: [
     SharedModule,
     FormsModule,
