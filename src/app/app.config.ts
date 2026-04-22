@@ -10,10 +10,12 @@ import { withNgxsFormPlugin } from '@ngxs/form-plugin';
 import { withNgxsRouterPlugin } from '@ngxs/router-plugin';
 import { withNgxsWebSocketPlugin } from '@ngxs/websocket-plugin';
 import { provideStore } from '@ngxs/store';
+import { UserState } from '../state/user-state';
 import { GoogleUserState } from '../state/google-user-state';
 import { SidenavState } from '../state/sidenav-state';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
+
 registerLocaleData(localePT)
 
 export const appConfig: ApplicationConfig = {
@@ -24,7 +26,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideOAuthClient(),
     provideStore(
-      [GoogleUserState, SidenavState],
+      [UserState, GoogleUserState, SidenavState],
       withNgxsReduxDevtoolsPlugin(),
       withNgxsFormPlugin(),
       withNgxsRouterPlugin(),

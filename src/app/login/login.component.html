@@ -12,11 +12,13 @@
 
             <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
                 <div class="content-wrapper">
+                    @if (isFirstAccess) {
                     <mat-form-field appearance="outline" class="input">
                         <mat-label> Código da Empresa </mat-label>
                         <input id="codigoEmpresa" matInput formControlName="codigoEmpresa">
                         <mat-icon matPrefix class="input-icon">domain</mat-icon>
                     </mat-form-field>
+                    }
                     
                     <mat-form-field appearance="outline" class="input">
                         <mat-label> Usuário </mat-label>
@@ -35,6 +37,7 @@
                             (click)="hidePassword = !hidePassword"
                             [attr.aria-label]="'hidePassword password'"
                             [attr.aria-pressed]="hidePassword"
+                            type="button"
                         >
                             <mat-icon> {{ hidePassword ? 'visibility_off' : 'visibility' }} </mat-icon>
                         </button>
@@ -42,7 +45,7 @@
                 </div>
                 
                 <div class="button-wrapper">
-                    <button mat-raised-button class="btn" type="button" (click)="onClickSignUp()"> Cadastrar </button>
+                    <button mat-stroked-button class="btn" type="button" (click)="onClickSignUp()"> Primeiro acesso </button>
                     <button mat-raised-button class="btn btn-primary" type="submit"> Login </button>
                 </div>
 
