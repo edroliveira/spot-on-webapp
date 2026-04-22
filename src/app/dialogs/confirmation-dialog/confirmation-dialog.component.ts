@@ -10,8 +10,8 @@ import { JsonPipe } from '@angular/common';
 import { ConfirmationDialogData } from '../../shared/model/confirmation-dialog-data';
 
 @Component({
-  selector: 'app-confirmation-dialog',
   standalone: true,
+  selector: 'app-confirmation-dialog',
   imports: [SharedModule],
   templateUrl: './confirmation-dialog.component.html',
   styleUrl: './confirmation-dialog.component.scss'

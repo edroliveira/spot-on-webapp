@@ -21,8 +21,8 @@ interface NavItem {
 }
 
 @Component({
-  selector: 'app-dashboard',
   standalone: true,
+  selector: 'app-dashboard',
   providers: [AuthGoogleService],
   imports: [
     RouterOutlet,

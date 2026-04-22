@@ -19,8 +19,8 @@ import { SetUser } from '../../action/user-action';
 import { UserState } from '../../state/user-state';
 
 @Component({
-  selector: 'app-header',
   standalone: true,
+  selector: 'app-header',
   providers: [AuthGoogleService],
   imports: [
     SharedModule,
@@ -31,11 +31,11 @@ import { UserState } from '../../state/user-state';
 })
 export class HeaderComponent implements OnInit {
   currentGoogleUser$: Observable<GoogleUserData | null> = this.store.select(GoogleUserState.getCurrentUser)
-      .pipe(distinctUntilChanged());
+    .pipe(distinctUntilChanged());
   currentUser$: Observable<User | null> = this.store.select(UserState.getCurrentUser)
-      .pipe(distinctUntilChanged());
+    .pipe(distinctUntilChanged());
   toggleSidenav$: Observable<boolean> = this.store.select(SidenavState.getToggleSidenav)
-      .pipe(distinctUntilChanged());
+    .pipe(distinctUntilChanged());
   toggleSidenav: boolean = false;
   dialog = inject(MatDialog);
   

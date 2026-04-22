@@ -14,19 +14,19 @@ import { UserState } from '../../state/user-state';
 import { User } from '../../models/user';
 
 @Component({
-  selector: 'app-clock',
   standalone: true,
+  selector: 'app-clock',
   imports: [
     DatePipe,
     SharedModule
   ],
-  providers: [ GeolocationService ],
+  providers: [GeolocationService],
   templateUrl: './clock.component.html',
   styleUrl: './clock.component.scss'
 })
 export class ClockComponent implements OnInit {
   currentUser$: Observable<User | null> = this.store.select(UserState.getCurrentUser)
-      .pipe(distinctUntilChanged());
+    .pipe(distinctUntilChanged());
   currentUser!: User;
   currentTime = new Date();
   currentTimeSubscription!: Subscription
