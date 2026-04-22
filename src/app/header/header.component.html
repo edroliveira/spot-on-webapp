@@ -9,7 +9,7 @@
         </div>
 
         <div class="user-info quicksand-font">
-            @if (currentUser$ | async; as user) {
+            @if (currentGoogleUser$ | async; as user) {
                 <span class="user-name"> Olá, <b>{{ user.name }}</b>! </span>
                 <img class="user-pic zoom" [src]="user.picture" alt="User's profile picture" [matMenuTriggerFor]="menu" loading="lazy" />
                 <mat-menu #menu="matMenu">

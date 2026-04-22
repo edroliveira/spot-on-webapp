@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
 
   onSubmitLogin() {
     if (!this.loginForm.valid) {
-      this.snackbarService.openAlert(AlertTypeEnum.ERROR);
+      this.snackbarService.openAlert(AlertTypeEnum.ERROR, 'Preencha os campos obrigatórios.');
     }
   }
 
