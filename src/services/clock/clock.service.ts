@@ -12,8 +12,8 @@ export class ClockService {
   private http = inject(HttpClient);
   private apiUrl = environment.apiUrl + '/v1/clock';
 
-  clockIn(TimeLocationRecord: TimeLocationRecord): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/record`, TimeLocationRecord);
+  clockIn(timeLocationRecord: TimeLocationRecord): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/record`, timeLocationRecord);
   }
 
   findRecordsByDate(userId: string, date: Date): Observable<TimeLocationRecord[]> {

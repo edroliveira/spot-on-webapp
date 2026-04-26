@@ -75,14 +75,14 @@ export class ClockComponent implements OnInit {
   registerTime() {
     this.disableClockInButton = true;
     this.geolocationService.getPosition().subscribe(resp => {
-      const TimeLocationRecord: TimeLocationRecord = {
+      const timeLocationRecord: TimeLocationRecord = {
         userId: this.currentUser.id!,
         latitude: resp.coords.latitude,
         longitude: resp.coords.longitude,
         dateTime: new Date()
       }
 
-      this.clockService.clockIn(TimeLocationRecord).subscribe({
+      this.clockService.clockIn(timeLocationRecord).subscribe({
         next: () => {
           this.snackbarService.openAlert(AlertTypeEnum.SUCCESS, 'Ponto registrado com sucesso!');
           this.getRecords();
