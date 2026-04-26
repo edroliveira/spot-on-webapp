@@ -1,24 +1,25 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { distinctUntilChanged, map, Observable, share, Subscription, timer } from 'rxjs';
-import { SharedModule } from '../shared/shared.module';
 import { GeolocationService } from '../../services/geolocation/geolocation.service';
 import { ClockService } from '../../services/clock/clock.service';
-import { RegisterTimeLocation } from '../../models/register-time-location';
+import { TimeLocationRecord } from '../../models/register-time-location';
 import { SnackbarService } from '../../services/snackbar/snackbar.service';
 import { AlertTypeEnum } from '../shared/model/enum/alert-type.enum';
-import { GoogleUserData } from '../../models/google-user-data';
-import { GoogleUserState } from '../../state/google-user-state';
 import { Store } from '@ngxs/store';
 import { UserState } from '../../state/user-state';
 import { User } from '../../models/user';
+import { SetRecords } from '../../action/record.action';
+import { MatRippleModule } from '@angular/material/core';
+import { MatProgressSpinnerModule, ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   standalone: true,
   selector: 'app-clock',
   imports: [
     DatePipe,
-    SharedModule
+    MatRippleModule,
+    MatProgressSpinnerModule
   ],
   providers: [GeolocationService],
   templateUrl: './clock.component.html',
@@ -30,6 +31,8 @@ export class ClockComponent implements OnInit {
   currentUser!: User;
   currentTime = new Date();
   currentTimeSubscription!: Subscription
+  disableClockInButton = false;
+  progressSpinnerMode: ProgressSpinnerMode = 'indeterminate';
 
   constructor(
     private geolocationService: GeolocationService,
@@ -65,21 +68,21 @@ export class ClockComponent implements OnInit {
 
   private getRecords() {
     this.clockService.findRecordsByDate(this.currentUser.id!, new Date()).subscribe(records => {
-      console.log('Records found:', records);
+      this.store.dispatch(new SetRecords(records));
     });
   }
 
   registerTime() {
+    this.disableClockInButton = true;
     this.geolocationService.getPosition().subscribe(resp => {
-      console.log('Geolocation response:', resp);
-      const registerTimeLocation: RegisterTimeLocation = {
+      const TimeLocationRecord: TimeLocationRecord = {
         userId: this.currentUser.id!,
         latitude: resp.coords.latitude,
         longitude: resp.coords.longitude,
         dateTime: new Date()
       }
 
-      this.clockService.clockIn(registerTimeLocation).subscribe({
+      this.clockService.clockIn(TimeLocationRecord).subscribe({
         next: () => {
           this.snackbarService.openAlert(AlertTypeEnum.SUCCESS, 'Ponto registrado com sucesso!');
           this.getRecords();
@@ -87,7 +90,8 @@ export class ClockComponent implements OnInit {
         error: (error) => {
           console.error('Error registering time:', error);
           this.snackbarService.openAlert(AlertTypeEnum.ERROR, 'Erro ao registrar ponto. Tente novamente.');
-        }
+        },
+        complete: () => this.disableClockInButton = false
       });
     });
   }

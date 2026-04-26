@@ -15,6 +15,7 @@ import { GoogleUserState } from '../state/google-user-state';
 import { SidenavState } from '../state/sidenav-state';
 import { registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
+import { RecordsState } from '../state/record.state';
 
 registerLocaleData(localePT)
 
@@ -26,7 +27,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideOAuthClient(),
     provideStore(
-      [UserState, GoogleUserState, SidenavState],
+      [UserState, GoogleUserState, SidenavState, RecordsState],
       withNgxsReduxDevtoolsPlugin(),
       withNgxsFormPlugin(),
       withNgxsRouterPlugin(),

@@ -63,5 +63,12 @@
             padding-right: 32px;
             padding-left: 32px;
         }
+
+        .spinner-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }

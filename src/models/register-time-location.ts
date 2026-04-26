@@ -1,4 +1,4 @@
-export interface RegisterTimeLocation {
+export interface TimeLocationRecord {
     userId: string,
 	latitude: number,
 	longitude: number,
