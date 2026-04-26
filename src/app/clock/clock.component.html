@@ -28,11 +28,22 @@
         <button
             type="button"
             class="btn-std"
+            style="width: 37%;"
             aria-label="Registrar ponto no sistema"
             matRipple
             (click)="registerTime()"
+            [disabled]="disableClockInButton"
         >
-            <span class="quicksand-font">Registrar Ponto</span>
+            @if (!disableClockInButton) {
+                <span class="quicksand-font">Registrar Ponto</span>
+            } @else {
+                <div class="spinner-wrapper">
+                    <mat-progress-spinner
+                        [diameter]="20" 
+                        [mode]="progressSpinnerMode">
+                    </mat-progress-spinner>
+                </div>
+            }
         </button>
 
         <button

@@ -4,9 +4,10 @@ import { User } from '../../models/user';
 import { UserState } from '../../state/user-state';
 import { Store } from '@ngxs/store';
 import { ClockService } from '../../services/clock/clock.service';
-import { RegisterTimeLocation } from '../../models/register-time-location';
+import { TimeLocationRecord } from '../../models/register-time-location';
 import { SharedModule } from '../shared/shared.module';
 import { DatePipe } from '@angular/common';
+import { RecordsState } from '../../state/record.state';
 
 @Component({
     standalone: true,
@@ -19,12 +20,13 @@ export class DailyFeedPanelComponent implements OnInit {
     currentUser$: Observable<User | null> = this.store.select(UserState.getCurrentUser)
         .pipe(distinctUntilChanged());
     currentUser!: User;
-    records: RegisterTimeLocation[] = [];
+    currentRecords$: Observable<TimeLocationRecord[] | null> = this.store.select(RecordsState.getCurrentRecords)
+        .pipe(distinctUntilChanged());
+    records: TimeLocationRecord[] | null = [];
     displayedColumns: string[] = ['dateTime'];
 
     constructor(
-        private store: Store,
-        private clockService: ClockService
+        private store: Store
     ) { }
 
     ngOnInit(): void {
@@ -41,8 +43,8 @@ export class DailyFeedPanelComponent implements OnInit {
     }
 
     private getRecords() {
-        this.clockService.findRecordsByDate(this.currentUser.id!, new Date()).subscribe(records => {
-            console.log('Records found:', records);
+        this.currentRecords$.subscribe(records => {
+            console.log('Current records updated:', records);
             this.records = records;
         });
     }
